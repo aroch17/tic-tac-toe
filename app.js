@@ -1,16 +1,28 @@
+corPoints = [] // TODO: make points where icons are perfectly centred
+
+
+is_cross = true
 document.addEventListener("click", (event) => {
     const playerTile = document.createElement("img")
-    playerTile.setAttribute("src", "assets/cross-ttt.png")
+
+    const iconType = is_cross ? "cross" : "circle"
+    playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
+    is_cross = !is_cross
+
     playerTile.setAttribute("alt", "Player Icon")
     playerTile.setAttribute("class", "icon")
 
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
-
     // the negative values account for the offset
-    playerTile.style.left = (mouseX-65) + "px";
-    playerTile.style.top = (mouseY-137) + "px";
+    const iconXCor = event.clientX - 65;
+    const iconYCor = event.clientY - 137;
+
+    playerTile.style.left = iconXCor + "px";
+    playerTile.style.top = iconYCor + "px";
 
     const container = document.getElementById("main-container")
     container.appendChild(playerTile)
 })
+
+corSelector = (x, y) => {
+    // TODO: make
+}
