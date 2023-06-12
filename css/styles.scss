@@ -1,5 +1,9 @@
-.circle, .cross {
-    position: absolute;
-    width: 7em;
-    height: 7em;
+.container {
+    position: relative;
+
+    .icon {
+        position: absolute;
+        width: 7em;
+        height: 7em;
+    }
 }
