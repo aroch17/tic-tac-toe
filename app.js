@@ -1,36 +1,48 @@
-// corPoints = [[x, y], [x2, y2]] // TODO: make points where icons are perfectly centred
+corPoints = {
+    "00": [610, 190],
+    "01": [745, 190],
+    "02": [880, 190],
+    "10": [615, 320],
+    "11": [747, 320],
+    "12": [880, 320],
+    "20": [610, 450],
+    "21": [745, 450],
+    "22": [880, 450]
+}
 
 is_cross = true
 document.addEventListener("click", (event) => {
     const container = document.getElementById("main-container")
+    iconCors = corSelector(event)
 
-    if (container.contains(event.target)) {
-        const playerTile = document.createElement("img")
+    const playerTile = document.createElement("img")
 
-        const iconType = is_cross ? "cross" : "circle"
-        playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
-        is_cross = !is_cross
+    const iconType = is_cross ? "cross" : "circle"
+    playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
+    is_cross = !is_cross
 
-        playerTile.setAttribute("alt", "Player Icon")
-        playerTile.setAttribute("class", "icon")
+    playerTile.setAttribute("alt", "Player Icon")
+    playerTile.setAttribute("class", "icon")
 
-        // the negative values account for the offset - dependent on h1 positioning and margin
-        // const xCor = event.clientX - 65;
-        const xCor = event.clientX - 581;
-        // const yCor = event.clientY - 137;
-        const yCor = event.clientY - 145;
-
-        // const iconXCor = corSelector(xCor, yCor)[0]
-        // const iconYCor = corSelector(xCor, yCor)[1]
-
-        playerTile.style.left = xCor + "px";
-        playerTile.style.top = yCor + "px";
-        container.appendChild(playerTile)
-    }
-    console.log(event.clientX)
-    console.log(event.clientY)
+    playerTile.style.left = iconCors[0] - 581 + "px";
+    playerTile.style.top = iconCors[1] - 145 + "px";
+    container.appendChild(playerTile)
 })
 
-// corSelector = (x, y) => {
-//     // TODO: make an algorithm to select the cor from 'corPoints' which is the least distance from (x, y)
-// }
+corSelector = (event) => {
+    const boxElements = [
+        ["00", "01", "02"],
+        ["10", "11", "12"],
+        ["20", "21", "22"]
+    ];
+
+    for (const row of boxElements) {
+        for (const boxId of row) {
+            const boxElement = document.getElementById(boxId);
+            if (boxElement.contains(event.target)) {
+                return corPoints[boxId];
+            }
+        }
+    }
+    console.log("Invalid Click");
+}

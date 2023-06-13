@@ -5,13 +5,10 @@
 }
 
 .box-container {
-	display: flex;
 	position: relative;
-	background-color: red;
 
 	div {
 		position: absolute;
-		background-color: red;
 		width: 8em;
 		height: 8em;
 		z-index: 999;
