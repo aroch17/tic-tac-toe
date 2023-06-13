@@ -7,12 +7,17 @@
 .box-container {
 	position: relative;
 
-	div {
+	.box {
 		position: absolute;
 		width: 8em;
 		height: 8em;
 		z-index: 999;
 	}
+
+    img {
+        left: -12.5em;
+		top: 2em;
+    }
 
 	.one {
 		left: -12.5em;

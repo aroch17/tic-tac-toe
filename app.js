@@ -11,23 +11,21 @@ corPoints = {
 }
 
 is_cross = true
-document.addEventListener("click", (event) => {
-    const container = document.getElementById("main-container")
-    iconCors = corSelector(event)
-
+makeIcon = (iconCors) => {
     const playerTile = document.createElement("img")
-
     const iconType = is_cross ? "cross" : "circle"
-    playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
-    is_cross = !is_cross
 
+    playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
     playerTile.setAttribute("alt", "Player Icon")
     playerTile.setAttribute("class", "icon")
 
     playerTile.style.left = iconCors[0] - 581 + "px";
     playerTile.style.top = iconCors[1] - 145 + "px";
-    container.appendChild(playerTile)
-})
+
+    is_cross = !is_cross
+
+    return playerTile
+}
 
 corSelector = (event) => {
     const boxElements = [
@@ -46,3 +44,10 @@ corSelector = (event) => {
     }
     console.log("Invalid Click");
 }
+
+document.addEventListener("click", (event) => {
+    const container = document.getElementById("main-container")
+    iconCors = corSelector(event)
+    const playerTile = makeIcon(iconCors)
+    container.appendChild(playerTile)
+})
