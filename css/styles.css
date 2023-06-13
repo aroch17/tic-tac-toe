@@ -1,5 +1,75 @@
-.container {
+.root-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-container {
+  display: flex;
   position: relative;
+  background-color: red;
+}
+.box-container div {
+  position: absolute;
+  background-color: red;
+  width: 8em;
+  height: 8em;
+  z-index: 999;
+}
+.box-container .one {
+  left: -12.5em;
+  top: 2em;
+}
+.box-container .two {
+  width: 7.5em;
+  height: 8em;
+  left: -3.75em;
+  top: 2em;
+}
+.box-container .three {
+  left: 4.5em;
+  top: 2em;
+}
+.box-container .four {
+  height: 7.5em;
+  left: -12.5em;
+  top: 10.7em;
+}
+.box-container .five {
+  height: 7.5em;
+  width: 7.5em;
+  left: -3.75em;
+  top: 10.7em;
+}
+.box-container .six {
+  height: 7.5em;
+  width: 8em;
+  left: 4.5em;
+  top: 10.7em;
+}
+.box-container .seven {
+  height: 8.5em;
+  left: -12.5em;
+  top: 18.75em;
+}
+.box-container .eight {
+  width: 7.5em;
+  height: 8.5em;
+  left: -3.75em;
+  top: 18.75em;
+}
+.box-container .nine {
+  height: 8.5em;
+  left: 4.5em;
+  top: 18.75em;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  background-color: gainsboro;
+  width: 30%;
+  justify-content: center;
 }
 .container .icon {
   position: absolute;
