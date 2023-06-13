@@ -14,11 +14,6 @@
 		z-index: 999;
 	}
 
-    img {
-        left: -12.5em;
-		top: 2em;
-    }
-
 	.one {
 		left: -12.5em;
 		top: 2em;
@@ -77,13 +72,12 @@
 }
 
 .container {
-	display: flex;
-	position: relative;
+	display: flex;	
 	background-color: gainsboro;
 	width: 30%;
 	justify-content: center;
+    
 	.icon {
-		position: absolute;
 		width: 7em;
 		height: 7em;
 	}

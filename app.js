@@ -1,33 +1,16 @@
-corPoints = {
-    "00": [610, 190],
-    "01": [745, 190],
-    "02": [880, 190],
-    "10": [615, 320],
-    "11": [747, 320],
-    "12": [880, 320],
-    "20": [610, 450],
-    "21": [745, 450],
-    "22": [880, 450]
+corClasses = {
+    "00": "one",
+    "01": "two",
+    "02": "three",
+    "10": "four",
+    "11": "five",
+    "12": "six",
+    "20": "seven",
+    "21": "eight",
+    "22": "nine"
 }
 
-is_cross = true
-makeIcon = (iconCors) => {
-    const playerTile = document.createElement("img")
-    const iconType = is_cross ? "cross" : "circle"
-
-    playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
-    playerTile.setAttribute("alt", "Player Icon")
-    playerTile.setAttribute("class", "icon")
-
-    playerTile.style.left = iconCors[0] - 581 + "px";
-    playerTile.style.top = iconCors[1] - 145 + "px";
-
-    is_cross = !is_cross
-
-    return playerTile
-}
-
-corSelector = (event) => {
+classSelector = (event) => {
     const boxElements = [
         ["00", "01", "02"],
         ["10", "11", "12"],
@@ -38,16 +21,30 @@ corSelector = (event) => {
         for (const boxId of row) {
             const boxElement = document.getElementById(boxId);
             if (boxElement.contains(event.target)) {
-                return corPoints[boxId];
+                return corClasses[boxId];
             }
         }
     }
-    console.log("Invalid Click");
+    throw new Error("Invalid Click");
+}
+
+is_cross = true
+makeIcon = (event) => {
+    const playerTile = document.createElement("img")
+    const iconType = is_cross ? "cross" : "circle"
+    iconClass = classSelector(event)
+
+    playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
+    playerTile.setAttribute("alt", "Player Icon")
+    playerTile.setAttribute("class", `icon box ${iconClass}`)
+    playerTile.style.objectFit = "contain"
+
+    is_cross = !is_cross
+    return playerTile
 }
 
 document.addEventListener("click", (event) => {
-    const container = document.getElementById("main-container")
-    iconCors = corSelector(event)
-    const playerTile = makeIcon(iconCors)
+    const container = document.getElementById("box-container")
+    const playerTile = makeIcon(event)
     container.appendChild(playerTile)
 })
