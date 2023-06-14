@@ -61,13 +61,7 @@
   top: 18.75em;
 }
 
-.container {
-  display: flex;
-  background-color: gainsboro;
-  width: 30%;
-  justify-content: center;
-}
-.container .icon {
+.icon {
   width: 7em;
   height: 7em;
 }/*# sourceMappingURL=styles.css.map */
