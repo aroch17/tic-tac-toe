@@ -8,6 +8,7 @@
   position: relative;
 }
 .box-container .box {
+  background-color: red;
   position: absolute;
   width: 8em;
   height: 8em;

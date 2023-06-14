@@ -1,9 +1,10 @@
 import { classSelector } from "./classSelector.js"
 
-let is_cross = true
+let isCross = true
+let iconType = ""
 export const makeIcon = (event) => {
     const playerTile = document.createElement("img")
-    const iconType = is_cross ? "cross" : "circle"
+    iconType = isCross ? "cross" : "circle"
     const iconClass = classSelector(event)
 
     playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
@@ -11,6 +12,14 @@ export const makeIcon = (event) => {
     playerTile.setAttribute("class", `icon box ${iconClass} ${iconType}`)
     playerTile.style.objectFit = "contain"
 
-    is_cross = !is_cross
+    isCross = !isCross
     return playerTile
+}
+
+export const getIsCross = () => {
+    return isCross
+}
+
+export const getIconType = () => {
+    return iconType
 }
