@@ -70,8 +70,9 @@
         top: 18.75em;
     }
 }
-  
-.icon {
-	width: 7em;
-	height: 7em;
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

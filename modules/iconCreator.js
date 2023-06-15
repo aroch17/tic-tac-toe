@@ -9,7 +9,7 @@ export const makeIcon = (event) => {
 
     playerTile.setAttribute("src", "assets/" + iconType + "-ttt.png")
     playerTile.setAttribute("alt", "Player Icon")
-    playerTile.setAttribute("class", `icon box ${iconClass} ${iconType}`)
+    playerTile.setAttribute("class", `box ${iconClass} ${iconType}`)
     playerTile.style.objectFit = "contain"
 
     isCross = !isCross
