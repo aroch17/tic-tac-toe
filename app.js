@@ -1,10 +1,17 @@
 import { makeIcon } from "./modules/iconCreator.js"
-import { isWinner } from "./modules/gameLogic.js"
+import { getIsRunning, isWinner } from "./modules/gameLogic.js"
 
-const container = document.getElementById("box-container")
 
-container.addEventListener("click", (event) => {
+const main = (event) => {
     const playerTile = makeIcon(event)
     container.appendChild(playerTile)
-    isWinner()
-})
+    console.log(isWinner())
+
+    if (!getIsRunning()) {
+        console.log("Game Over")
+        container.removeEventListener("click", main)
+    }
+}
+
+const container = document.getElementById("box-container")
+container.addEventListener("click", main)
