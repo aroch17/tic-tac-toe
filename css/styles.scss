@@ -1,9 +1,78 @@
-.container {
-    position: relative;
+.root-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
-    .icon {
-        position: absolute;
-        width: 7em;
-        height: 7em;
+.box-container {
+	position: relative;
+
+	.box {
+		position: absolute;
+		width: 8em;
+		height: 8em;
+		z-index: 999;
+	}
+
+	.one {
+		left: -12.5em;
+		top: 2em;
+	}
+
+	.two {
+		width: 7.5em;
+		height: 8em;
+		left: -3.75em;
+		top: 2em;
+	}
+
+	.three {
+		left: 4.5em;
+		top: 2em;
+	}
+
+	.four {
+		height: 7.5em;
+		left: -12.5em;
+		top: 10.7em;
+	}
+
+	.five {
+		height: 7.5em;
+		width: 7.5em;
+		left: -3.75em;
+		top: 10.7em;
+	}
+
+	.six {
+        height: 7.5em;
+		width: 8em;
+		left: 4.5em;
+		top: 10.7em;
+	}
+
+    .seven {
+        height: 8.5em;
+        left: -12.5em;
+        top: 18.75em;
     }
+
+    .eight {
+        width: 7.5em;
+		height: 8.5em;
+        left: -3.75em;
+        top: 18.75em;
+    }
+
+    .nine {
+        height: 8.5em;
+        left: 4.5em;
+        top: 18.75em;
+    }
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
