@@ -37,7 +37,7 @@ export const updatePos = () => {
             circle_pos = [...new Set(circle_pos)]
         }
     }
-    console.log(cross_pos, circle_pos)
+    // console.log(cross_pos, circle_pos)
 }
 
 const allFilled = () => {
