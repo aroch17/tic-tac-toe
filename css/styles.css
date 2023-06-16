@@ -65,4 +65,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.bar {
+  position: absolute;
+  background-color: lightgreen;
+  width: 8em;
+  height: 8em;
 }/*# sourceMappingURL=styles.css.map */

@@ -45,13 +45,31 @@ const allFilled = () => {
     return (cross_pos.length + circle_pos.length == 9)
 }
 
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
+}
+
+export const drawWinningLine = (cor) => {
+    let winningClasses = cor.map(x => getKeyByValue(numberDict, x))
+    for (let i = 0; i < winningClasses.length; i++) {
+        const container = document.getElementById("box-container")
+        const winningBar = document.createElement("div")
+
+        winningBar.setAttribute("class", `bar ${winningClasses[i]}`)
+        container.appendChild(winningBar)
+    }
+}
+
+let winningPos = []
 export const hasWon = () => {
     for (let i = 0; i < allWinningPos.length; i++) {
         // To check membership of winning pos in board pos
         // [3, 6, 9].every(element => [9, 6, 7, 3].includes(element) -> true
         if (cross_pos.length >= 3 && allWinningPos[i].every(element => cross_pos.includes(element))) {
+            winningPos = allWinningPos[i]
             return "Cross wins!"
         } else if (circle_pos.length >= 3 && allWinningPos[i].every(element => circle_pos.includes(element))) {
+            winningPos = allWinningPos[i]
             return "Circle wins!"
         } else continue
     }
@@ -68,4 +86,8 @@ export const displayGameOverMessage = (msg) => {
 
         imgContainer.appendChild(message)
     }
+}
+
+export const getWinningPos = () => {
+    return winningPos
 }

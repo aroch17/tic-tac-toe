@@ -1,5 +1,5 @@
 import { makeIcon } from "./modules/iconCreator.js"
-import { hasWon, displayGameOverMessage, updatePos } from "./modules/gameLogic.js"
+import { hasWon, displayGameOverMessage, updatePos, drawWinningLine, getWinningPos } from "./modules/gameLogic.js"
 
 
 const main = (event) => {
@@ -9,6 +9,7 @@ const main = (event) => {
 
     if (hasWon()) {
         container.removeEventListener("click", main)
+        drawWinningLine(getWinningPos())
         displayGameOverMessage(hasWon())
     }
 }
