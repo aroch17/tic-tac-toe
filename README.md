@@ -1,3 +1,4 @@
 # tic-tac-toe
 
-Tic tac toe game
+- A recreation of the popular Tic Tac Toe game
+- Live: https://aroch17.github.io/tic-tac-toe/
